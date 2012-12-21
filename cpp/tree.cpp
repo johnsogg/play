@@ -1,5 +1,6 @@
 
 #include "tree.h"
+#include <iostream>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ void Tree::insert(int num) {
     cout << "Inserting number: " << num << endl;
     if (root == NULL) {
         root = new Node(num);
-        cout << "Made a root node whose data is " << root->data << endl;
+        cout << "Made a root node whose data is " << root->getData() << endl;
     } else {
         root->insert(num);
     }

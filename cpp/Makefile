@@ -68,6 +68,9 @@ tree.o : $(USER_DIR)/tree.cpp
 tree_test.o : tree.o $(USER_DIR)/tree_test.cpp $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/tree_test.cpp
 
-tree_test : tree_test.o tree.o gtest.a
+tree_test : tree_test.o tree.o RetroPrinter.o gtest.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+RetroPrinter.o : $(USER_DIR)/RetroPrinter.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/RetroPrinter.cpp
 

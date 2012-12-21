@@ -1,9 +1,12 @@
-//
-// This is boilerplate for creating a new test.
 
 #include "tree.h"
 #include "gtest/gtest.h"
 #include <iostream>
+#include "RetroPrinter.h"
+
+using ::testing::InitGoogleTest;
+using ::testing::UnitTest;
+using ::testing::TestEventListeners;
 
 namespace {
 
@@ -50,6 +53,15 @@ TEST_F(TreeTest, PrintTree) {
 }  // namespace
 
 int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
+  InitGoogleTest(&argc, argv);
+  UnitTest& unit_test = *UnitTest::GetInstance();
+  TestEventListeners& listeners = unit_test.listeners();
+
+  // if we don't want the default listener printing anything, remove it:
+  delete listeners.Release(listeners.default_result_printer());
+
+  // if we do want our custom listener to record success/fail, add it:
+  listeners.Append(new RetroPrinter);
+
   return RUN_ALL_TESTS();
 }
