@@ -4,15 +4,16 @@
 class Node {
 
 protected:
-  Node* left;
   Node* right;
+  Node* left;
   int data;
 public:
+  Node(int num);
+  ~Node();
   Node* find(int num);
   void insert(int num);
   int getData() { return data; }
-  Node(int num);
-  ~Node();
+  int size();
 };
 
 class Tree {
@@ -22,6 +23,7 @@ public:
   Tree();
   void insert(int num);
   bool contains(int num);
+  int size();
 };
 
 

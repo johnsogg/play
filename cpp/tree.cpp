@@ -6,14 +6,11 @@ using namespace std;
 
 Tree::Tree() {
     root = NULL;
-    cout << "Created a nice tree." << endl;
 }
 
 void Tree::insert(int num) {
-    cout << "Inserting number: " << num << endl;
     if (root == NULL) {
         root = new Node(num);
-        cout << "Made a root node whose data is " << root->getData() << endl;
     } else {
         root->insert(num);
     }
@@ -28,6 +25,14 @@ bool Tree::contains(int num) {
         }
     }
     return ret;
+}
+
+int Tree::size() {
+  int ret = 0;
+  if (root != NULL) {
+    ret = root->size();
+  }
+  return ret;
 }
 
 Node* Node::find(int num) {
@@ -53,7 +58,9 @@ Node* Node::find(int num) {
 }
 
 Node::Node(int num) {
-    data = num;
+  data = num;
+  left = NULL;
+  right = NULL;
 }
 
 void Node::insert(int num) {
@@ -71,4 +78,15 @@ void Node::insert(int num) {
             right->insert(num);
         }
     }
+}
+
+int Node::size() {
+  int ret = 1; // for myself
+  if (this->left != NULL) {
+    ret = ret + left->size();
+  }
+  if (right != NULL) {
+    ret = ret + right->size();
+  }
+  return ret;
 }
