@@ -2,10 +2,14 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include "RetroPrinter.h"
+#include <string>
 
 using ::testing::InitGoogleTest;
 using ::testing::UnitTest;
 using ::testing::TestEventListeners;
+using std::string;
+using std::cout;
+using std::endl;
 
 namespace {
 
@@ -51,7 +55,15 @@ TEST_F(TreeTest, InsertNode) {
 }
 
 TEST_F(TreeTest, PrintTree) {
-  //    std::cout << "TEST_F runs for TreeTest PrintTree" << std::endl;
+  // string foo("this is a string");
+  // string bar("another string");
+  // string baz("this is a string");
+  // string baf("another string");
+  // EXPECT_EQ(foo.compare(baz), 0);
+  // EXPECT_EQ(bar.compare(baf), 0);
+  // EXPECT_NE(foo.compare(bar), 0);
+  // EXPECT_NE(baz.compare(baf), 0);
+  
 }
 
 }  // namespace
