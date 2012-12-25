@@ -37,8 +37,37 @@
 #   If you see this error, it means you are using spaces instead of a
 #   tab. I realize this is dumb. Sadly, make is sort of of a standard.
 #
-#   Don't edit the remainder of this file. You may remove this
-#   friendly comment block, though.
+#   Targets such as 'foo.o' are responsible for generating a binary
+#   'object file'. The compiler produces this intermediate format,
+#   which can be thought of as something lower-level than C++ code,
+#   but higher-level than machine code that is executed by the CPU
+#   directly. For a fun time, run the 'otool' command with the -tV
+#   flag to see the assembly code that your program is turned into:
+#
+#   $ otool -tV foo.o
+#   foo.o:
+#   (__TEXT,__text) section
+#   __Z9init_nodei:
+#   0000000000000000	pushq	%rbp
+#   0000000000000001	movq	%rsp,%rbp
+#   0000000000000004	subq	$0x10,%rsp
+#   0000000000000008	movq	$0x0000000000000010,%rax
+#   0000000000000012	movl	%edi,0xfc(%rbp)
+#   0000000000000015	movq	%rax,%rdi
+#       ... miles and miles of this continue ...
+#
+#   Those commands like "pushq %rbp" and "movq %rsp,%rbp" are one step
+#   above executable machine code. When you get to advanced CS or
+#   CompEng classes you will probably encounter something like this
+#   and have to write it by hand!
+#
+#   Don't edit the remainder of this file. When your homework is
+#   graded, RetroGrade will use its own Makefile.
+#
+#   You may remove this friendly comment block, though.
+
+
+
 
 # Where to find user code.
 USER_DIR = .
