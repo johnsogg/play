@@ -1,2 +1,4 @@
-/py/test_tree.pyc
-/py/tree.pyc
+*.pyc
+*.o
+/cpp/gtest.a
+/cpp/linked_list/linked_list
